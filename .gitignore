@@ -1,0 +1,10 @@
+# Vim session files
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+~*
+
+# Local backup files
+*.bkp
+*.bak

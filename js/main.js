@@ -14,19 +14,12 @@ function main() {
     num = pickNum(len);
     $(".game-board").empty().append(0);
     $("#score").children().remove();
-    for (j = 0; j < 4; j ++ ) {
-    $("#score").append(
-              "\<a href=\"#\" class=\"list-group-item disabled\"\>&nbsp;\<\/a\>");
-    }
     console.log('The secret number is:\n  ' + num.join('\n  '));
     initGame();
 }
 
 function showScore(nBulls, nCows) {
     console.log('    Bulls: ' + nBulls + ', cows: ' + nCows);
-    if (nGuesses < 5) {
-        $("#score").children("a:first").remove();
-    }
     $("#score").append(
               "\<a href=\"#\" class=\"list-group-item disabled\"\>" +
                 nGuesses + ": " +

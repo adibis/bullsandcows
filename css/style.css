@@ -42,6 +42,7 @@ body > .container {
 
 .list-group {
     max-height: 200px;
+    min-height: 200px;
     overflow-y: scroll;
 }
 

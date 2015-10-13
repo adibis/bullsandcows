@@ -1,19 +1,18 @@
 /* Fonts
  * ------------------------------------------------------------------------- */
 @font-face {
-    font-family: 'Raleway';
-    src: url('../fonts/raleway-regular-webfont.ttf') format('truetype'); }
+  font-family: 'Raleway';
+src: url('../fonts/raleway-regular-webfont.ttf') format('truetype'); }
 
 @font-face {
   font-family: 'Inconsolata';
-  src: url("../fonts/inconsolata-regular.ttf") format("truetype"); }
+src: url("../fonts/inconsolata-regular.ttf") format("truetype"); }
 
 
 /* Structure
  * ------------------------------------------------------------------------- */
 html {
   font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
   margin: 0;
@@ -38,21 +37,6 @@ a {
   padding-left: 15px;
   padding-right: 15px;
 }
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
 
 /* Buttons
  * ------------------------------------------------------------------------- */
@@ -64,7 +48,7 @@ a {
   text-align: center;
   vertical-align: middle;
   -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
   background-image: none;
   border: 1px solid transparent;
@@ -159,32 +143,16 @@ a {
 }
 .navbar {
   position: relative;
-  min-height: 65px;
+  min-height: 60px;
+  height: 60px;
   margin-bottom: 22px;
   border: 1px solid transparent;
-}
-@media (min-width: 768px) {
-  .navbar {
-    border-radius: 4px;
-  }
-}
-@media (min-width: 768px) {
-  .navbar-header {
-    float: left;
-  }
 }
 .navbar-fixed-top {
   position: fixed;
   right: 0;
   left: 0;
   z-index: 1030;
-}
-@media (min-width: 768px) {
-  .navbar-fixed-top {
-    border-radius: 0;
-  }
-}
-.navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
 }
@@ -193,12 +161,7 @@ a {
   padding: 21.5px 15px;
   font-size: 20px;
   line-height: 22px;
-  height: 65px;
-}
-@media (min-width: 768px) {
-  .navbar > .container .navbar-brand {
-    margin-left: -15px;
-  }
+  height: 60px;
 }
 .navbar-inverse {
   background-color: #ffffff;
@@ -211,6 +174,9 @@ a {
 /* Lists
  * ------------------------------------------------------------------------- */
 .list-group {
+  max-height: 200px;
+  min-height: 200px;
+  overflow-y: scroll;
   margin-bottom: 20px;
   padding-left: 0;
 }
@@ -238,7 +204,7 @@ a.list-group-item {
 /* Outer Panel
  * ------------------------------------------------------------------------- */
 .panel {
-  margin-bottom: 22px;
+  margin-bottom: 10px;
   background-color: #ffffff;
   border: 1px solid transparent;
   border-radius: 4px;

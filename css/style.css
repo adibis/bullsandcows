@@ -1,5 +1,5 @@
 /* Sticky footer styles
--------------------------------------------------- */
+ * ------------------------------------------------------------------------- */
 html {
   position: relative;
   min-height: 99%;
@@ -29,63 +29,42 @@ body > .container {
 .container .text-muted {
   margin: 10px 0;
 }
-
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
-
 .btn-default:active {
-    background-color: #ddd;
-    border-color: #ddd;
-}
-
-.list-group {
-    max-height: 200px;
-    min-height: 200px;
-    overflow-y: scroll;
-}
-
-.navbar {
-    min-height: 60px;
-    height: 60px;
-}
-
-.navbar-brand {
-    height: 60px;
-}
-
-.panel {
-    margin-bottom: 10px;
+  background-color: #ddd;
+  border-color: #ddd;
 }
 
 /* Game Board Style
 -------------------------------------------------- */
 
 .game-board {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .answer-list {
-    font-family: 'Inconsolata';
-    font-size: 20px;
-    margin-top: 5%;
+  font-family: 'Inconsolata';
+  font-size: 20px;
+  margin-top: 5%;
 }
 
 .bull {
-    float: right;
-    padding-right: 10%;
+  float: right;
+  padding-right: 10%;
 }
 
 .cow {
-    float: right;
-    padding-right: 20%;
+  float: right;
+  padding-right: 25%;
 }
 
 .answer-board {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
 .answer-item {
-    font-size: 20px;
+  font-size: 20px;
 }

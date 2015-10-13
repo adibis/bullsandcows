@@ -8,7 +8,7 @@
     <meta name="author" content="Aditya Shevade">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 
   </head>
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" onclick='main();'>&#x1F42E; Bulls and Cows</a>
+          <a class="navbar-brand" href="#">&#x1F42E; Bulls and Cows</a>
         </div>
       </div>
     </nav>
@@ -30,10 +30,10 @@
         <div class="panel-body">
 
           <div id="answer" class="btn-group btn-group-justified">
-            <a href="#" class="1 game-board btn btn-primary disabled">0</a>
-            <a href="#" class="2 game-board btn btn-primary disabled">0</a>
-            <a href="#" class="3 game-board btn btn-primary disabled">0</a>
-            <a href="#" class="4 game-board btn btn-primary disabled">0</a>
+            <a href="#" class="1 game-board btn btn-primary">0</a>
+            <a href="#" class="2 game-board btn btn-primary">0</a>
+            <a href="#" class="3 game-board btn btn-primary">0</a>
+            <a href="#" class="4 game-board btn btn-primary">0</a>
           </div>
 
           <div class="answer-list">
@@ -43,19 +43,19 @@
 
           <div class="answer-board">
             <div class="btn-group btn-group-justified">
-              <a href="#" class="1 answer-item btn btn-default">1</a>
-              <a href="#" class="2 answer-item btn btn-default">2</a>
-              <a href="#" class="3 answer-item btn btn-default">3</a>
+              <a href="#" id="1" class="answer-item btn btn-default">1</a>
+              <a href="#" id="2" class="answer-item btn btn-default">2</a>
+              <a href="#" id="3" class="answer-item btn btn-default">3</a>
             </div>
             <div class="btn-group btn-group-justified">
-              <a href="#" class="4 answer-item btn btn-default">4</a>
-              <a href="#" class="5 answer-item btn btn-default">5</a>
-              <a href="#" class="6 answer-item btn btn-default">6</a>
+              <a href="#" id="4" class="answer-item btn btn-default">4</a>
+              <a href="#" id="5" class="answer-item btn btn-default">5</a>
+              <a href="#" id="6" class="answer-item btn btn-default">6</a>
             </div>
             <div class="btn-group btn-group-justified">
-              <a href="#" class="7 answer-item btn btn-default">7</a>
-              <a href="#" class="8 answer-item btn btn-default">8</a>
-              <a href="#" class="9 answer-item btn btn-default">9</a>
+              <a href="#" id="7" class="answer-item btn btn-default">7</a>
+              <a href="#" id="8" class="answer-item btn btn-default">8</a>
+              <a href="#" id="9" class="answer-item btn btn-default">9</a>
             </div>
             <div class="btn-group btn-group-justified">
               <a href="#" id="new" class="answer-item btn btn-default" onclick='main();'>New</a>
@@ -74,7 +74,6 @@
     </footer>
 
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
   </body>

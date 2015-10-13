@@ -6,7 +6,7 @@ var nGuesses = 1;
 
 function main() {
     for (j = 1; j < 10; j++) {
-        $("." + j).unbind("click");
+        $("#" + j).unbind("click");
     }
     i = 0;
     nGuesses = 1;
@@ -16,12 +16,7 @@ function main() {
     $("#score").children().remove();
     for (j = 0; j < 4; j ++ ) {
     $("#score").append(
-              "\<a href=\"#\" class=\"list-group-item disabled\"\>" +
-                0 + ": " +
-                guess.join("") +
-                "\<span class=\"bull\"\>&#x1F402;: " + 0 +"\<\/span\>" +
-                "\<span class=\"cow\"\>&#x1F404;: " + 0 + "\<\/span\>" +
-              "\<\/a\>");
+              "\<a href=\"#\" class=\"list-group-item disabled\"\>&nbsp;\<\/a\>");
     }
     console.log('The secret number is:\n  ' + num.join('\n  '));
     initGame();
@@ -89,7 +84,7 @@ function initGame(){
     }
     for(var i=1; i < 10; i++)
     {
-        $("." + i).bind("click", playMove);
+        $("#" + i).bind("click", playMove);
     }
 };
 
@@ -100,10 +95,10 @@ function playMove(){
         if (i != 0) {
             i--;
         }
-        $("."+guess[i]).bind("click", playMove);
+        $("#"+guess[i]).bind("click", playMove);
         guess[i] = 0;
     } else {
-        guess[i] = cell.attr('class').split(" ")[0];
+        guess[i] = cell.attr('id').split(" ")[0];
         if (i == 0) {
             $(".game-board").empty().append(0);
         }
@@ -112,7 +107,7 @@ function playMove(){
         i++;
         if (i == 4) {
             for (j = 1; j < 10; j++) {
-                $("." + j).unbind("click");
+                $("#" + j).unbind("click");
             }
             var census = countBovine(num, guess);
             showScore(census.bulls, census.cows);

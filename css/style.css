@@ -19,7 +19,6 @@ body {
   text-align: center;
 }
 
-
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
@@ -36,27 +35,9 @@ body > .container {
   padding-left: 15px;
 }
 
-.btn.disabled {
-    opacity: 1;
-}
-
-.btn-default:hover {
-    background-color: #fff;
+.btn-default:active {
+    background-color: #ddd;
     border-color: #ddd;
-}
-
-.list-group-item.disabled {
-    color: #333;
-    background: #fff;
-    pointer-events: none;
-}
-
-.modal-content {
-    padding: 10px;
-}
-
-.modal-header {
-    margin-bottom: 10px;
 }
 
 .list-group {
@@ -85,6 +66,7 @@ body > .container {
 }
 
 .answer-list {
+    font-family: 'Inconsolata';
     font-size: 20px;
     margin-top: 5%;
 }

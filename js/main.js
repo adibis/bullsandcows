@@ -11,11 +11,7 @@ var nGuesses
  * ------------------------------------------------------------------------- */
 function main() {
 
-    // Unbind all click events when cleaning up previous entry/game.
-    for (j = 1; j < 10; j++) {
-        $("#" + j).unbind("click");
-    }
-
+    cleanupBoard();
     // Reset all variables.
     i = 0;
     nGuesses = 1;
@@ -104,7 +100,22 @@ function initBoard(){
     {
         $("#" + i).bind("click", playMove);
     }
+    $("#delete").bind("click", playMove);
 };
+
+/* Cleanup the main board. Deletes all click events.
+ * - Always do cleanup when
+ *   - Starting game
+ *   - After finishing a guess (i = 4)
+ * ------------------------------------------------------------------------- */
+function cleanupBoard() {
+    // Unbind all click events when cleaning up previous entry/game.
+    for (j = 1; j < 10; j++) {
+        $("#" + j).unbind("click");
+    }
+    // Unbind all delete events.
+    $("#delete").unbind("click", playMove);
+}
 
 /* Decode which button was pressed based on button ID.
  * - Also handles the delete event.
@@ -141,6 +152,7 @@ function playMove(){
         // Then process bulls and cows.
         // Update the input entry.
         if (i == 4) {
+            cleanupBoard();
             for (j = 1; j < 10; j++) {
                 $("#" + j).unbind("click");
             }
@@ -167,6 +179,5 @@ function playMove(){
  * ------------------------------------------------------------------------- */
 $(document).ready(function(){
     // Bing the delete button to delete key.
-    $("#delete").bind("click", playMove);
     main();
 });

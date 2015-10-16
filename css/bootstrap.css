@@ -77,6 +77,11 @@ a {
   background-color: #3fad46;
   border-color: #3fad46;
 }
+.btn-fail {
+  color: #ffffff;
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
 .btn-group {
   position: relative;
   display: inline-block;

@@ -17,6 +17,7 @@ body {
   height: 40px;
   border-top: 1px solid #dddddd;
   text-align: center;
+  z-index: 2000;
 }
 
 /* Custom page CSS
@@ -53,12 +54,12 @@ body > .container {
 
 .bull {
   float: right;
-  width: 30%;
+  width: 25%;
 }
 
 .cow {
   float: right;
-  width: 30%;
+  width: 25%;
 }
 
 .answer-board {
@@ -88,4 +89,8 @@ body > .container {
 .menubar {
   float: right;
   margin-top: 20px;
+}
+
+#start {
+    margin-top: 30%;
 }

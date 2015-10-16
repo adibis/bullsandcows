@@ -43,12 +43,16 @@ function main() {
  * Scrolls to the bottom, where new entry is created.
  * ------------------------------------------------------------------------- */
 function showScore(nBulls, nCows) {
+    var guessCount = "";
+    if (maxGuesses) {
+        guessCount = ("/" + maxGuesses);
+    }
     if (nGuesses < 5) {
         $("#score").children("a:first").remove();
     }
     $("#score").append(
             "\<a href=\"#\" class=\"list-group-item disabled\"\>" +
-            nGuesses + ": " +
+            nGuesses + guessCount + ": " +
             guess.join("") +
             "\<span class=\"bull\"\>&#x1F402;: " + nBulls +"\<\/span\>" +
             "\<span class=\"cow\"\>&#x1F404;: " + nCows + "\<\/span\>" +
@@ -59,11 +63,18 @@ function showScore(nBulls, nCows) {
 /* Changes the game-board to green on victory.
  * TODO: Perhaps display message in the entry list when correct?
  * ------------------------------------------------------------------------- */
-function showFinalResult(guesses) {
-    console.log('You win!!! Guesses needed: ' + guesses);
+function showFinalResult(guesses, gameStatus) {
     var cell = $(".game-board");
-    if( cell.hasClass("btn-primary") ) {
-        cell.removeClass("btn-primary").addClass("btn-success");
+    if (gameStatus) {
+        console.log('You win!!! Guesses needed: ' + guesses);
+        if( cell.hasClass("btn-primary") ) {
+            cell.removeClass("btn-primary").addClass("btn-success");
+        }
+    } else {
+        console.log('You lose!!! Maximum guesses reached: ' + guesses + "/" + maxGuesses);
+        if( cell.hasClass("btn-primary") ) {
+            cell.removeClass("btn-primary").addClass("btn-fail");
+        }
     }
 }
 
@@ -90,6 +101,17 @@ function setMaxGuess(inMaxGuesses, mode) {
         cell.removeClass("btn-success").addClass("btn-default");
     }
     $("#" + mode).removeClass("btn-default").addClass("btn-success");
+}
+
+/* Check if maximum guesses allowed reached. End game if yes.
+ * ------------------------------------------------------------------------- */
+function checkMaxGuess() {
+    if (nGuesses == maxGuesses) {
+        showFinalResult(nGuesses, false);
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /* Set number width.
@@ -193,14 +215,16 @@ function playMove(){
 
             // Correct number guessed, update the game-board to success.
             if (census.bulls == len) {
-                showFinalResult(nGuesses);
+                showFinalResult(nGuesses, true);
 
                 // If not then reset everything for next guess.
             } else {
-                i = 0;
-                nGuesses++;
-                guess = [0, 0, 0, 0];
-                initBoard();
+                if (!checkMaxGuess()) {
+                    i = 0;
+                    nGuesses++;
+                    guess = [0, 0, 0, 0];
+                    initBoard();
+                }
             }
         }
     }

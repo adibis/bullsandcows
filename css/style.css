@@ -53,12 +53,12 @@ body > .container {
 
 .bull {
   float: right;
-  padding-right: 10%;
+  width: 30%;
 }
 
 .cow {
   float: right;
-  padding-right: 25%;
+  width: 30%;
 }
 
 .answer-board {
@@ -67,4 +67,25 @@ body > .container {
 
 .answer-item {
   font-size: 20px;
+}
+
+#overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:1000;
+  display:block;
+  background: #fff;
+}
+
+.menu {
+    padding-top: 70px;
+    margin: 0 10%;
+}
+
+.menubar {
+  float: right;
+  margin-top: 20px;
 }

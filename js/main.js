@@ -2,7 +2,8 @@ var i;
 var len = 4;
 var num;
 var guess;
-var nGuesses
+var nGuesses;
+var maxGuesses = 0;
 
 /* Initial game and page conditions.
  * - Resets all variables.
@@ -24,7 +25,9 @@ function main() {
     for (j = 0; j < 4; j ++ ) {
         $("#score").append("\<a href=\"#\" class=\"list-group-item disabled\"\>&nbsp;\<\/a\>");
     }
+    console.log('Length of Number: ' + len);
     console.log('The secret number is:  ' + num.join(',  '));
+    console.log('Max guesses allowed: ' + maxGuesses);
 
     // Initialize all buttons and game-board again.
     initBoard();
@@ -72,6 +75,29 @@ function countBovine(num, guess) {
     console.log("Guess: " + g + ".\nBulls: " + count.bulls + ". Cows: " + count.cows + ".");
     return count;
 }
+
+/* Set maximum guesses allowed before game is lost.
+ * ------------------------------------------------------------------------- */
+function setMaxGuess(inMaxGuesses, mode) {
+    maxGuesses = inMaxGuesses;
+    var cell = $(".mode");
+    if( cell.hasClass("btn-success") ) {
+        cell.removeClass("btn-success").addClass("btn-default");
+    }
+    $("#" + mode).removeClass("btn-default").addClass("btn-success");
+}
+
+/* Set number width.
+ * ------------------------------------------------------------------------- */
+function setLen(inLen, size) {
+    len = inLen;
+    var cell = $(".size");
+    if( cell.hasClass("btn-success") ) {
+        cell.removeClass("btn-success").addClass("btn-default");
+    }
+    $("#" + size).removeClass("btn-default").addClass("btn-success");
+}
+
 
 /* Picks a random 4 digits number with no duplicates.
  * ------------------------------------------------------------------------- */
@@ -174,6 +200,16 @@ function playMove(){
         }
     }
 };
+
+/* Menu overlay show/hide function.
+ * ------------------------------------------------------------------------- */
+function showMenu() {
+    if($('#overlay').css('display') == 'block') {
+        $('#overlay').hide('slow');
+    } else {
+        $('#overlay').show('slow');
+    }
+}
 
 /* This is executed when the page is loaded.
  * ------------------------------------------------------------------------- */

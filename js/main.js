@@ -19,10 +19,15 @@ function main() {
     guess = [0, 0, 0, 0];
     num = pickNum(len);
 
+    $("#answer").empty();
+    for (var j = 0; j < len; j ++ ) {
+        $("#answer").append("\<a href\=\"#\" class\=\"" + (j + 1) + " game-board btn btn-primary\"\>0\<\/a\>");
+    }
+
     // Remove old data from HTML page.
     $(".game-board").empty().append(0);
     $("#score").children().remove();
-    for (j = 0; j < 4; j ++ ) {
+    for (var j = 0; j < 4; j ++ ) {
         $("#score").append("\<a href=\"#\" class=\"list-group-item disabled\"\>&nbsp;\<\/a\>");
     }
     console.log('Length of Number: ' + len);
@@ -177,7 +182,7 @@ function playMove(){
         // When all 4 digits are entered, disable all future clicks.
         // Then process bulls and cows.
         // Update the input entry.
-        if (i == 4) {
+        if (i == len) {
             cleanupBoard();
             for (j = 1; j < 10; j++) {
                 $("#" + j).unbind("click");

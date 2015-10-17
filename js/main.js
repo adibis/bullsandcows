@@ -4,6 +4,8 @@ var num;
 var guess;
 var nGuesses;
 var maxGuesses = 0;
+var baseGuess = 0;
+var gameMode;
 
 /* Initial game and page conditions.
  * - Resets all variables.
@@ -95,10 +97,16 @@ function countBovine(num, guess) {
 /* Set maximum guesses allowed before game is lost.
  * ------------------------------------------------------------------------- */
 function setMaxGuess(inMaxGuesses, mode) {
-    maxGuesses = inMaxGuesses;
+    maxGuesses = (inMaxGuesses + (len-3) * (len-3));
+    gameMode = mode;
+    baseGuess = inMaxGuesses;
     var cell = $(".mode");
     if( cell.hasClass("btn-success") ) {
         cell.removeClass("btn-success").addClass("btn-default");
+    }
+    $("#turns").empty();
+    if (maxGuesses) {
+        $("#turns").append("(Max Guesses: " + maxGuesses + ")");
     }
     $("#" + mode).removeClass("btn-default").addClass("btn-success");
 }
@@ -122,6 +130,7 @@ function setLen(inLen, size) {
     if( cell.hasClass("btn-success") ) {
         cell.removeClass("btn-success").addClass("btn-default");
     }
+    setMaxGuess(baseGuess, gameMode);
     $("#" + size).removeClass("btn-default").addClass("btn-success");
 }
 

@@ -94,3 +94,8 @@ body > .container {
 #start {
     margin-top: 30%;
 }
+
+#turns {
+    font-size: 1.4rem;
+    color: #999;
+}

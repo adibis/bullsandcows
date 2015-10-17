@@ -97,7 +97,7 @@ function countBovine(num, guess) {
 /* Set maximum guesses allowed before game is lost.
  * ------------------------------------------------------------------------- */
 function setMaxGuess(inMaxGuesses, mode) {
-    maxGuesses = (inMaxGuesses + (len-3) * (len-3));
+    maxGuesses = (inMaxGuesses + ( (inMaxGuesses/2) * (len - 4) ) );
     gameMode = mode;
     baseGuess = inMaxGuesses;
     var cell = $(".mode");

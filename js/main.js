@@ -1,11 +1,12 @@
-var i;
-var len = 4;
-var num;
-var guess;
-var nGuesses;
-var maxGuesses = 0;
-var baseGuess = 0;
-var gameMode;
+var i;              // Used throughout as counter for various things.
+var len = 4;        // Default length is 4.
+var num;            // Randomly generated number.
+var guess;          // User input.
+var nGuesses;       // Number of guesses taken.
+var maxGuesses = 0; // Maximum guesses allowed. 0 is unlimited.
+var baseGuess = 0;  // Used as the base number passed to the formula to get maxGuesses.
+var gameMode;       // Easy/Medium/Hard. Used to display allowed guesses.
+
 
 /* Initial game and page conditions.
  * - Resets all variables.
@@ -14,13 +15,16 @@ var gameMode;
  * ------------------------------------------------------------------------- */
 function main() {
 
+    // Remove all click bindings.
     cleanupBoard();
+
     // Reset all variables.
     i = 0;
     nGuesses = 1;
     guess = [0, 0, 0, 0];
     num = pickNum(len);
 
+    // Empty the anwer window and add 0s.
     $("#answer").empty();
     for (var j = 0; j < len; j ++ ) {
         $("#answer").append("\<a href\=\"#\" class\=\"" + (j + 1) + " game-board btn btn-primary\"\>0\<\/a\>");
@@ -32,6 +36,8 @@ function main() {
     for (var j = 0; j < 4; j ++ ) {
         $("#score").append("\<a href=\"#\" class=\"list-group-item disabled\"\>&nbsp;\<\/a\>");
     }
+
+    // Debug messages. Should not be in production.
     console.log('Length of Number: ' + len);
     console.log('The secret number is:  ' + num.join(',  '));
     console.log('Max guesses allowed: ' + maxGuesses);
@@ -62,7 +68,7 @@ function showScore(nBulls, nCows) {
     $("#score").animate({ scrollTop: $("#score")[0].scrollHeight }, "slow");
 }
 
-/* Changes the game-board to green on victory.
+/* Changes the game-board to green on victory and red on failure.
  * TODO: Perhaps display message in the entry list when correct?
  * ------------------------------------------------------------------------- */
 function showFinalResult(guesses, gameStatus) {
@@ -181,6 +187,8 @@ function cleanupBoard() {
 
 /* Decode which button was pressed based on button ID.
  * - Also handles the delete event.
+ * TODO: Tidy up the function. It's too long and does things which
+ * are not "playMove"
  * ------------------------------------------------------------------------- */
 function playMove(){
     var cell = $(this);
@@ -210,18 +218,16 @@ function playMove(){
         cell.unbind("click");
         i++;
 
-        // When all 4 digits are entered, disable all future clicks.
+        // When all digits are entered, disable all future clicks.
         // Then process bulls and cows.
         // Update the input entry.
         if (i == len) {
             cleanupBoard();
-            for (j = 1; j < 10; j++) {
-                $("#" + j).unbind("click");
-            }
 
             var census = countBovine(num, guess);
             showScore(census.bulls, census.cows);
 
+            // FIXME: Should this be in a processMove() function?
             // Correct number guessed, update the game-board to success.
             if (census.bulls == len) {
                 showFinalResult(nGuesses, true);
@@ -243,9 +249,9 @@ function playMove(){
  * ------------------------------------------------------------------------- */
 function showMenu() {
     if($('#overlay').css('display') == 'block') {
-        $('#overlay').hide('slow');
+        $('#overlay').slideUp('slow');
     } else {
-        $('#overlay').show('slow');
+        $('#overlay').slideDown('slow');
     }
 }
 

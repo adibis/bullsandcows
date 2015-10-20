@@ -13,9 +13,13 @@ src: url("../fonts/inconsolata-regular.ttf") format("truetype"); }
  * ------------------------------------------------------------------------- */
 html {
   font-size: 10px;
+  position: relative;
+  min-height: 99%;
 }
 body {
   margin: 0;
+  margin-bottom: 40px;
+  font-family:"Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   line-height: 1.42857143;
   color: #333333;
@@ -36,6 +40,29 @@ a {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+body > .container {
+  padding: 70px 10px 0;
+}
+.container .text-muted {
+  margin: 10px 0;
+}
+
+/* Footer
+ * ------------------------------------------------------------------------- */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  border-top: 1px solid #dddddd;
+  text-align: center;
+  z-index: 2000;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 /* Buttons
@@ -66,6 +93,10 @@ a {
   color: #333333;
   background-color: #ffffff;
   border-color: #dddddd;
+}
+.btn-default:active {
+  background-color: #ddd;
+  border-color: #ddd;
 }
 .btn-primary {
   color: #ffffff;
